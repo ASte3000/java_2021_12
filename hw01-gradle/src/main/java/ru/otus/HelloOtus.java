@@ -6,7 +6,7 @@ public class HelloOtus {
     private static final String PETER_TONGUE_TWISTER = "Peter Piper picked a peck of pickled peppers\n" +
             "A peck of pickled peppers Peter Piper picked\n" +
             "If Peter Piper picked a peck of pickled peppers\n" +
-            "Where’s the peck of pickled peppers Peter Piper picked?";
+            "Where is the peck of pickled peppers Peter Piper picked?";
     private static final String RESULT_TEMPLATE = "'p' mentioned %d times";
 
     public static void main(String... args) {
