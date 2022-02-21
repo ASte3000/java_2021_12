@@ -33,6 +33,6 @@ public class TheSuspect {
 
     @After
     public void CleanupQuestions() {
-        qestions.clear();
+        qestions.clear();   //makes no sense, but just to have something here
     }
 }

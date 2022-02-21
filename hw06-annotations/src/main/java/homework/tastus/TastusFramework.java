@@ -5,6 +5,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.*;
 
+/**
+ * Tests running framework - finds and runds annotated methods in a given class
+ */
 public class TastusFramework {
     private static final List<Class<? extends Annotation>> ANNOTATION_TYPES =
             List.of(Before.class, After.class, Test.class);
