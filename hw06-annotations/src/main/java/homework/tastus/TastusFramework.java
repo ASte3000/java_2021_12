@@ -55,7 +55,8 @@ public class TastusFramework {
 
     private Map<Class<? extends Annotation>, List<Method>> getAnnotatedMethodsMap(Method[] methods) {
         Map<Class<? extends Annotation>, List<Method>> map = new HashMap<>();
-        ANNOTATION_TYPES.forEach(annotationType -> map.put(annotationType, new ArrayList<>()));
+        for (Class<? extends Annotation> annotationType : ANNOTATION_TYPES)
+            map.put(annotationType, new ArrayList<>());
 
         for (Method method : methods) {
             for (Annotation annotation : method.getDeclaredAnnotations()) {
