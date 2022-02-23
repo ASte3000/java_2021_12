@@ -4,6 +4,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Tests running framework - finds and runds annotated methods in a given class
@@ -54,20 +56,16 @@ public class TastusFramework {
     }
 
     private Map<Class<? extends Annotation>, List<Method>> getAnnotatedMethodsMap(Method[] methods) {
-        Map<Class<? extends Annotation>, List<Method>> map = new HashMap<>();
-        for (Class<? extends Annotation> annotationType : ANNOTATION_TYPES)
-            map.put(annotationType, new ArrayList<>());
+        Map<Class<? extends Annotation>, List<Method>> annotationTypesMap = new HashMap<>();
+        for (Class<? extends Annotation> annotationType : ANNOTATION_TYPES) {
+            List<Method> methodsList = Stream.of(methods)
+                    .filter(method -> method.isAnnotationPresent(annotationType))
+                    .collect(Collectors.toList());
 
-        for (Method method : methods) {
-            for (Annotation annotation : method.getDeclaredAnnotations()) {
-                List<Method> methodsList = map.get(annotation.annotationType());
-                if (methodsList != null) {
-                    methodsList.add(method);
-                }
-            }
+            annotationTypesMap.put(annotationType, methodsList);
         }
 
-        return map;
+        return annotationTypesMap;
     }
 
     private void runTestMethod(Constructor<?> constructor, Method testMethod,
