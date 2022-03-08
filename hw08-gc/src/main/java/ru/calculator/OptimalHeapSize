@@ -1,0 +1,36 @@
+
+Оптимальный размер heap: 1536m/2048m.
+При 2048m достигается незначительный прирост производительности по сравнению с 1536m,
+а при дальнейшем увеличении heap заметно даже некоторое снижение производительности.
+
+
+Все результаты тестов:
+
+256m:
+Execution failed for task ':hw08-gc:CalcDemo.main()'.
+> Process 'command 'C:/JDK/LibJDK-17.0.2/bin/java.exe'' finished with non-zero exit value 1
+
+512m:
+spend msec:14516, sec:14
+spend msec:15820, sec:15
+spend msec:16425, sec:16
+spend msec:16437, sec:16
+
+1024m:
+spend msec:13711, sec:13
+spend msec:13611, sec:13
+
+1536m:
+spend msec:11734, sec:11
+spend msec:11697, sec:11
+spend msec:11784, sec:11
+
+2048m:
+spend msec:11597, sec:11
+spend msec:11523, sec:11
+spend msec:11508, sec:11
+
+3072m:
+spend msec:11918, sec:11
+spend msec:11633, sec:11
+spend msec:11904, sec:11
